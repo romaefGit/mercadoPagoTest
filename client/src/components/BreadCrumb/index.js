@@ -4,7 +4,7 @@ import './styles.scss';
 export const BreadCrumb = () => {
 
   return (
-    <ul class="breadcrumbs">
+    <ul className="breadcrumbs">
       <li><a href="">Electrónica, Audio y Video</a></li>
       <li><a href="">iPod</a></li>
       <li><a href="">Reproductores</a></li>

@@ -1,0 +1,101 @@
+{
+  "products": [
+    {
+      "author": {
+        "name": "Romario",
+        "lastname": "Estrada"
+      },
+      "categories": [
+        "Electrónica, Audio y Video",
+        "iPod",
+        "Reproductores",
+        "iPod touch",
+        "32GB"
+      ],
+      "id": "1",
+      "title": "Apple Ipod Touch 5g 16gb Negro Igual A Nuevo",
+      "description": "Completo único!",
+      "place": "Capital Federal",
+      "price": {
+        "currency": "COP",
+        "amount": 1980,
+        "decimals": 0
+      },
+      "picture": "src/assets/dataExample/products/ipod.png",
+      "condition": "Nuevo - 234 vendidos",
+      "free_shipping": false
+    },
+    {
+      "author": {
+        "name": "Romario",
+        "lastname": "Estrada"
+      },
+      "categories": [
+        "Electrónica, Audio y Video",
+        "iPhone",
+        "Celulares",
+        "64GB"
+      ],
+      "id": "2",
+      "title": "Apple Iphone Touch 5g 64gb",
+      "description": "Completo único!",
+      "place": "Mendoza",
+      "price": {
+        "currency": "COP",
+        "amount": 4980,
+        "decimals": 0
+      },
+      "picture": "src/assets/dataExample/products/iphone.png",
+      "condition": "Nuevo - 100 vendidos",
+      "free_shipping": true
+    },
+    {
+      "author": {
+        "name": "Romario",
+        "lastname": "Estrada"
+      },
+      "categories": [
+        "Electrónica, Audio y Video",
+        "iPod",
+        "Reproductores",
+        "iPod touch",
+        "16GB"
+      ],
+      "id": "3",
+      "title": "Apple Ipod Touch 5g 16gb",
+      "description": "Completo único!",
+      "place": "Capital Federal",
+      "price": {
+        "currency": "COP",
+        "amount": 3980,
+        "decimals": 0
+      },
+      "picture": "src/assets/dataExample/products/ipod3.png",
+      "condition": "Nuevo - 300 vendidos",
+      "free_shipping": false
+    },
+    {
+      "author": {
+        "name": "Romario",
+        "lastname": "Estrada"
+      },
+      "categories": [
+        "Electrónica, Audio y Video",
+        "iPhone",
+        "32GB"
+      ],
+      "id": "4",
+      "title": "Apple iPhone 5g 32gb Negro Igual A Nuevo",
+      "description": "Completo único!",
+      "place": "Mendoza",
+      "price": {
+        "currency": "COP",
+        "amount": 1980,
+        "decimals": 0
+      },
+      "picture": "src/assets/dataExample/products/iphone2.png",
+      "condition": "Nuevo - 34 vendidos",
+      "free_shipping": true
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+@import '../../styles/variables.scss';
+
+.product {
+  margin: $--pad-x;
+  border-bottom: 1px solid $--gray-light;
+
+  & a {
+    text-decoration: none;
+    color: $--black;
+  }
+
+  &__thumbnail {
+    position: relative;
+    overflow: hidden;
+    max-width: 180px;
+    max-height: 180px;
+    height: 180px;
+    float: left;
+    margin-right: $--margin;
+
+    @include --mobile {
+      float: inherit;
+      margin: 0 auto;
+      max-width: inherit;
+      max-height: inherit;
+      height: inherit;
+    }
+
+    &--img {
+      @include --mobile {
+        width: 100%
+      }
+    }
+  }
+
+  &__info {
+    position: relative;
+    text-align: left;
+
+    @include --mobile {
+      padding-top: $--padding;
+    }
+
+    &--price {
+      font-size: $--font-big;
+      color: $--black;
+      margin: $--mar-y;
+
+      & img {
+        display: initial;
+        margin-left: #{$--margin / 2};
+        max-width: 15px;
+      }
+    }
+
+    &--title {
+      font-size: $--font-normal;
+      font-weight: 400;
+      color: $--black;
+    }
+
+    &--desc {
+      font-size: $--font-normal;
+      font-weight: 400;
+      color: $--gray;
+    }
+
+
+    &--place {
+      position: absolute;
+      top: 0;
+      right: #{$--margin * 2};
+      font-size: $--font-small;
+      color: $--gray-medium;
+
+      @include --tablet {
+        position: inherit;
+        top: inherit;
+        right: inherit;
+        font-size: $--font-small;
+        color: $--gray;
+      }
+    }
+  }
+
+}
+
+.product-detail {
+  @include --box-global;
+  background: $--white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+  & a {
+    text-decoration: none;
+    color: $--black;
+  }
+
+  &__thumbnail {
+    position: relative;
+    overflow: hidden;
+    max-width: 680px;
+    float: left;
+    margin-right: $--margin;
+    margin-left: $--margin;
+
+    @include --mobile {
+      float: inherit;
+      margin: 0 auto;
+      max-width: inherit;
+      max-height: inherit;
+      height: inherit;
+    }
+
+    &--img {
+      @include --mobile {
+        width: 100%
+      }
+    }
+  }
+
+  &__info {
+    position: relative;
+    text-align: left;
+
+    @include --mobile {
+      padding-top: $--padding;
+    }
+
+    &--price {
+      font-size: $--font-big;
+      color: $--black;
+      margin: $--mar-y;
+
+      & img {
+        display: initial;
+        margin-left: #{$--margin / 2};
+        max-width: 15px;
+      }
+    }
+
+    &--title {
+      font-size: $--font-normal;
+      font-weight: 400;
+      color: $--black;
+    }
+
+    &--desc {
+      font-size: $--font-normal;
+      font-weight: 400;
+      color: $--gray;
+    }
+
+
+    &--place {
+      position: absolute;
+      top: 0;
+      right: #{$--margin * 2};
+      font-size: $--font-small;
+      color: $--gray-medium;
+
+      @include --tablet {
+        position: inherit;
+        top: inherit;
+        right: inherit;
+        font-size: $--font-small;
+        color: $--gray;
+      }
+    }
+  }
+
+}
