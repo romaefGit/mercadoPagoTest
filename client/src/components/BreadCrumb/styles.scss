@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+
+.breadcrumbs {
+  @include --box-global;
+  display: block;
+  padding: $--pad-y;
+
+  li {
+    display: inline-block;
+
+    a {
+      position: relative;
+      font-size: $--font-small;
+      color: $--gray-medium;
+      padding-right: #{$--padding / 2};
+      margin-right: #{$--padding / 2};
+      text-decoration: none;
+
+      &:after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid $--gray-medium;
+        border-right: 1px solid $--gray-medium;
+        position: absolute;
+        top: 6px;
+        right: 0;
+        transform: rotate(45deg);
+        display: block;
+      }
+    }
+
+    &:last-of-type a {
+      color: $--gray;
+      font-weight: bold;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
