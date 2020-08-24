@@ -5,6 +5,10 @@
   display: block;
   padding: $--pad-y;
 
+  @include --mobile {
+    padding: $--padding;
+  }
+
   li {
     display: inline-block;
 

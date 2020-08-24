@@ -2,12 +2,18 @@ import React, { Fragment } from "react"
 import { SearchBox } from '../components/SearchBox'
 import { BreadCrumb } from '../components/BreadCrumb'
 import { ListOfProductCards } from '../container/listOfProductCards'
-
+var categories = [
+  "Electrónica, Audio y Video",
+  "iPod",
+  "Reproductores",
+  "iPod touch",
+  "32GB"
+]
 export const Home = (path) => {
   return (
     <Fragment>
       <SearchBox />
-      <BreadCrumb />
+      <BreadCrumb {...categories} />
       <ListOfProductCards />
     </Fragment>
   )

@@ -89,6 +89,8 @@
   @include --box-global;
   background: $--white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  padding-left: #{$--padding * 2};
+  padding-right: #{$--padding * 2};
 
   & a {
     text-decoration: none;
@@ -96,24 +98,10 @@
   }
 
   &__thumbnail {
-    position: relative;
-    overflow: hidden;
-    max-width: 680px;
-    float: left;
-    margin-right: $--margin;
-    margin-left: $--margin;
-
-    @include --mobile {
-      float: inherit;
-      margin: 0 auto;
-      max-width: inherit;
-      max-height: inherit;
-      height: inherit;
-    }
-
     &--img {
       @include --mobile {
-        width: 100%
+        width: 100%;
+        margin: $--mar-center;
       }
     }
   }
@@ -121,42 +109,51 @@
   &__info {
     position: relative;
     text-align: left;
+    padding: $--pad-x;
 
     @include --mobile {
       padding-top: $--padding;
     }
 
     &--price {
-      font-size: $--font-big;
+      position: relative;
+      font-size: $--font-super-big;
+      font-weight: 600;
       color: $--black;
       margin: $--mar-y;
 
-      & img {
-        display: initial;
-        margin-left: #{$--margin / 2};
-        max-width: 15px;
+      &-decimal {
+        position: absolute;
+        top: 8px;
+        font-weight: 500;
+        font-size: $--font-normal;
       }
     }
 
     &--title {
-      font-size: $--font-normal;
-      font-weight: 400;
+      font-size: $--font-big;
+      font-weight: 600;
       color: $--black;
     }
 
     &--desc {
-      font-size: $--font-normal;
-      font-weight: 400;
-      color: $--gray;
+      text-align: left;
+
+      & p {
+        font-size: $--font-normal;
+        font-weight: 400;
+        color: $--gray;
+      }
+
+      @include --mobile {
+        padding: $--pad-x;
+      }
     }
 
 
-    &--place {
-      position: absolute;
-      top: 0;
-      right: #{$--margin * 2};
+    &--condition {
       font-size: $--font-small;
-      color: $--gray-medium;
+      color: $--black;
 
       @include --tablet {
         position: inherit;
@@ -164,6 +161,30 @@
         right: inherit;
         font-size: $--font-small;
         color: $--gray;
+      }
+    }
+
+    &--button {
+      width: 100%;
+      background-color: #3483fa;
+      border-radius: 3px;
+      border: 1px solid #3483fa;
+      display: inline-block;
+      cursor: pointer;
+      color: #ffffff;
+      font-family: Arial;
+      font-size: $--font-normal;
+      padding: 8px 20px;
+      text-decoration: none;
+      text-shadow: 0px 1px 0px #1470fa;
+
+      &:hover {
+        background-color: #6fa7fc;
+      }
+
+      &:active {
+        position: relative;
+        top: 1px;
       }
     }
   }

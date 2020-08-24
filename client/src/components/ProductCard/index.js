@@ -2,12 +2,12 @@ import React, { Fragment } from 'react'
 import NumberFormat from 'react-number-format'
 import './styles.scss'
 import { Img } from './styles'
+import { BreadCrumb } from '../BreadCrumb'
 import { useNearItemsToShow } from '../../hooks/useNearItemsToShow'
 import { useMouseBehaviour } from '../../hooks/useMouseBehaviour'
 
 import { Link as TheLink } from '@reach/router'
 
-const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
 let IconShop = require('../../assets/img/Ic_shipping.png');
 IconShop = IconShop.default;
 
@@ -51,32 +51,42 @@ export const ProductCard = (product) => {
 
 			{
 				(!showNormal) && <Fragment>
-					<div className="product-detail flex-grid">
-						<div className="d-col-8 t-col-8 m-col-12">
-							<div className="product-detail__thumbnail">
-								<Img className="img--responsive product-detail__thumbnail--img" src={product.picture} />
-							</div>
-						</div>
+					<BreadCrumb {...product.categories} />
+					<div className="product-detail">
+						<div className="flex-wrapper">
+							<div className="flex-grid">
+								<div className="d-col-8 t-col-6 m-col-12">
+									<div className="product-detail__thumbnail">
+										<Img className="img--responsive product-detail__thumbnail--img" src={product.picture} />
+									</div>
+								</div>
 
-						<div className="d-col-4 t-col-4 m-col-12">
-							<div className="product-detail__info">
-								<p className="product-detail__info--place">{product.place}</p>
-								<h1 className="product-detail__info--title">{product.title}</h1>
-								<p className="product-detail__info--price">
-									<NumberFormat value={product.price.amount} displayType={'text'} thousandSeparator={true} prefix={'$'} />
-								</p>
-							</div>
-						</div>
+								<div className="d-col-4 t-col-6 m-col-12">
+									<div className="product-detail__info">
+										<p className="product-detail__info--condition">{product.condition}</p>
+										<h1 className="product-detail__info--title">{product.title}</h1>
+										<p className="product-detail__info--price">
+											<NumberFormat value={product.price.amount} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+											<span className="product-detail__info--price-decimal">00</span>
+										</p>
 
-						<div className="product-detail__info--desc d-col-12 t-col-12 m-col-12">
-							<h2>Descripción del producto</h2>
-							<p>{product.description}</p>
+										<button className="product-detail__info--button">Comprar</button>
+									</div>
+								</div>
+							</div>
+
+							<div className="flex-grid">
+								<div className="product-detail__info--desc d-col-12 t-col-12 m-col-12">
+									<h2>Descripción del producto</h2>
+									<p>{product.description}</p>
+								</div>
+							</div>
 						</div>
 					</div>
+
 				</Fragment>
 
 			}
-
 		</article>
 	)
 }

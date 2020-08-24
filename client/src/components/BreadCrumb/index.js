@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './styles.scss';
 
-export const BreadCrumb = () => {
+export const BreadCrumb = (categories) => {
+
+  const listCategories = Object.keys(categories).map(key =>
+    <li key={key}><a href="">{categories[key]}</a></li>
+  )
 
   return (
-    <ul className="breadcrumbs">
-      <li><a href="">Electrónica, Audio y Video</a></li>
-      <li><a href="">iPod</a></li>
-      <li><a href="">Reproductores</a></li>
-      <li><a href="">iPod touch</a></li>
-      <li><a href="">32GB</a></li>
-    </ul>
+    <Fragment>
+      <ul className="breadcrumbs">
+        {
+          listCategories
+        }
+      </ul>
+    </Fragment>
   )
 }
