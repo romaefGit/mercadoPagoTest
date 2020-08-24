@@ -1,0 +1,39 @@
+@import './responsive.scss';
+
+$--primary: #FFE600;
+$--black: #333333;
+$--gray: #666666;
+$--gray-medium: #999999;
+$--gray-light: #EEEEEE;
+$--white: #fff;
+
+$--margin: 16px;
+$--padding: 16px;
+$--pad-x: 0 16px;
+$--pad-y: 16px 0px;
+$--mar-x: 0 16px;
+$--mar-y: 16px 0px;
+$--mar-center: 0 auto;
+
+$--font-small: 12px;
+$--font-normal: 1rem;
+$--font-big: 1.2rem;
+
+@mixin --box-global {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin: 0 auto;
+
+  @content;
+
+  @include --tablet {
+    width: 80%;
+  }
+
+  @include --mobile {
+    width: 100%;
+    padding: 0px 5px;
+  }
+}
