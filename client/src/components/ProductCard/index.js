@@ -40,7 +40,6 @@ export const ProductCard = (product) => {
 										}
 									</p>
 									<h1 className="product__info--title">{product.title}</h1>
-									<p className="product__info--desc">{product.description}</p>
 									<p className="product__info--place">{product.place}</p>
 								</div>
 							</TheLink>
@@ -76,7 +75,7 @@ export const ProductCard = (product) => {
 							</div>
 
 							<div className="flex-grid">
-								<div className="product-detail__info--desc d-col-12 t-col-12 m-col-12">
+								<div className="product-detail__info--desc d-col-8 t-col-8 m-col-12">
 									<h2>Descripción del producto</h2>
 									<p>{product.description}</p>
 								</div>

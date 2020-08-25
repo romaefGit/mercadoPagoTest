@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import { SearchBox } from '../components/SearchBox'
 import { BreadCrumb } from '../components/BreadCrumb'
-import { ListOfProductCards } from '../container/listOfProductCards'
+import { ListOfProductCards } from '../container/ListOfProductCards'
 var categories = [
   "Electrónica, Audio y Video",
   "iPod",
