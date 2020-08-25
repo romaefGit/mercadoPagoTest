@@ -1,14 +1,20 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-export const useGetData = () => {
+export const useGetData = (endPoint, id = null) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
+  var requestUrl = global.config.api + "/" + endPoint;
+  if (id != null) {
+    requestUrl = global.config.api + "/" + endPoint + '/' + id
+  }
   // Note: the empty deps array [] means
   // this useEffect will run once
   useEffect(() => {
-    fetch("https://api.github.com/users/hadley/orgs")
+    fetch(requestUrl, {
+      method: 'GET'
+    })
       .then(res => res.json())
       .then(
         (result) => {

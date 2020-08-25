@@ -6,7 +6,13 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser'); // to put limits of load
 const routes = require('./server/routes/index'); // the routes of the server
 const globals = require('./globals.js');
+const cors = require('cors');
 const app = express();
+
+app.use(cors());
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/products-img', express.static(__dirname + '/public/products'));
 
 // Rutas del servidor
 app.engine('html', cons.swig)

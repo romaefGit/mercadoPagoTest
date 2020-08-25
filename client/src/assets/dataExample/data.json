@@ -21,7 +21,7 @@
         "amount": 1980,
         "decimals": 0
       },
-      "picture": "src/assets/dataExample/products/ipod.png",
+      "picture": "http://localhost:3000/products-img/ipod.png",
       "condition": "Nuevo - 234 vendidos",
       "free_shipping": false
     },
@@ -45,7 +45,7 @@
         "amount": 4980,
         "decimals": 0
       },
-      "picture": "src/assets/dataExample/products/iphone.png",
+      "picture": "http://localhost:3000/products-img/iphone.png",
       "condition": "Nuevo - 100 vendidos",
       "free_shipping": true
     },
@@ -70,7 +70,7 @@
         "amount": 3980,
         "decimals": 0
       },
-      "picture": "src/assets/dataExample/products/ipod3.png",
+      "picture": "http://localhost:3000/products-img/ipod3.png",
       "condition": "Nuevo - 300 vendidos",
       "free_shipping": false
     },
@@ -93,7 +93,7 @@
         "amount": 1980,
         "decimals": 0
       },
-      "picture": "src/assets/dataExample/products/iphone2.png",
+      "picture": "http://localhost:3000/products-img/iphone2.png",
       "condition": "Nuevo - 34 vendidos",
       "free_shipping": true
     }

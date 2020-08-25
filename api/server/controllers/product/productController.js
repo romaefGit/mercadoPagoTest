@@ -24,7 +24,6 @@ exports.listProducts = function (req, res) {
             }
         ]
     }).then((Products) => {
-        ProductsHasCategories
         response.status = true;
         response.products = Products;
         response.message = "The products was brought correctly.";

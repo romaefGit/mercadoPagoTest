@@ -19,7 +19,7 @@ var findItem = (prop, id) => {
 }
 
 export const ProductCardWithQuery = ({ id }) => {
-  console.log(useGetData());
+  console.log(useGetData('products'));
   let product = findItem('products', id);
-  return <ProductCard key={product.id} {...product} picture={`../${product.picture}`} showDetail={true} />;
+  return <ProductCard key={product.id} {...product} picture={`${product.picture}`} showDetail={true} />;
 }
