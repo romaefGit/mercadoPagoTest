@@ -28,6 +28,10 @@ module.exports = function (sequelize, Sequelize) {
     free_shipping: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
+    },
+    sold_quantity: {
+      type: Sequelize.INTEGER(11),
+      allowNull: false,
     }
   }, {
     timestamps: true,

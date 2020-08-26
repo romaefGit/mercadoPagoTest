@@ -56,7 +56,7 @@ exports.addUser = function (req, res) {
     };
     let UserToSave = {
         name: User.name,
-        lastname: User.description,
+        lastname: User.lastname,
         rol: User.rol
     };
     // console.log('UserToSave > ', UserToSave);
@@ -81,7 +81,7 @@ exports.editUser = function (req, res) {
     };
     let UserToUpdate = {
         name: User.name,
-        lastname: User.description,
+        lastname: User.lastname,
         rol: User.rol
     };
     // console.log('UserToUpdate > ', UserToUpdate);

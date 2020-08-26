@@ -55,9 +55,7 @@ exports.addCategory = function (req, res) {
         message: "The category can't be created"
     };
     let categoryToSave = {
-        name: category.name,
-        lastname: category.description,
-        rol: category.rol
+        name: category.name
     };
     // console.log('categoryToSave > ', categoryToSave);
     models.Categories.create(categoryToSave).then((save) => {

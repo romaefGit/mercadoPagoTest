@@ -14,7 +14,9 @@ exports.getVars = function () {
         "actions": {
             // if its true, this create the sql necessary to create the tables into the database. 
             //  It works for the  or update only if there is a new table without relations with others models created before
-            "syncronyzeModel": false
+            "syncronyzeModel": false,
+            "force": false // to force the changes in a database created after with data on it tables
+
         }
     }
 

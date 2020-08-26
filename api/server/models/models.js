@@ -40,7 +40,7 @@ exports.ProductsHasCategories = ProductsHasCategories;
 
 if (actions.syncronyzeModel) {
     /** Syncronizing the database **/
-    sequelize.sync().then(function () {
+    sequelize.sync(actions.force).then(function () {
         console.log("---------------------------------------------------------");
         console.log("<<<<<<< (Success) The database is already syncronized >>>>>>>>");
         console.log("---------------------------------------------------------");

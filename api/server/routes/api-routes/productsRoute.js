@@ -6,6 +6,7 @@ var ProductsController = require('../../controllers/product/productController.js
 router.get('/', ProductsController.listProducts);
 router.get('/:by', ProductsController.listProductsBy);
 router.get('/categories/:id', ProductsController.getProductCategories);
+router.get('/search/?query', ProductsController.searchProducts);
 router.post('/', ProductsController.addProduct);
 router.put('/:id', ProductsController.editProduct);
 router.delete('/:id', ProductsController.deleteProduct);
