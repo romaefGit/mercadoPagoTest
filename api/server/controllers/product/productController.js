@@ -84,7 +84,7 @@ exports.getProductById = function (req, res) {
                 attributes: ["type", "ammount", "decimal"]
             }
         ],
-        attributes: ['idproduct', "picture", "title", "place", "condition", "free_shipping"],
+        attributes: ['idproduct', "picture", "title", "place", "condition", "description", "sold_quantity", "free_shipping"],
     }).then(async (Product) => {
         let getCategories = await findCategories(idProduct);
         let categories = []
@@ -99,6 +99,8 @@ exports.getProductById = function (req, res) {
             "author": Product.user,
             "price": Product.currency,
             "condition": Product.condition,
+            "sold_quantity": Product.sold_quantity,
+            "description": Product.description,
             "free_shipping": Product.free_shipping,
             "categories": categories
         }

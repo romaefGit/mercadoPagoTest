@@ -34,7 +34,7 @@ export const ProductCard = (product) => {
 								</div>
 								<div className="product__info">
 									<p className="product__info--price">
-										<NumberFormat value={product.price.amount} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+										<NumberFormat value={product.price.ammount} displayType={'text'} thousandSeparator={true} prefix={'$'} />
 										{
 											(product.free_shipping) && <Img className="img--responsive" src={IconShop} />
 										}
@@ -62,11 +62,11 @@ export const ProductCard = (product) => {
 
 								<div className="d-col-4 t-col-6 m-col-12">
 									<div className="product-detail__info">
-										<p className="product-detail__info--condition">{product.condition}</p>
+										<p className="product-detail__info--condition">{product.condition} - {product.sold_quantity} vendidos</p>
 										<h1 className="product-detail__info--title">{product.title}</h1>
 										<p className="product-detail__info--price">
-											<NumberFormat value={product.price.amount} displayType={'text'} thousandSeparator={true} prefix={'$'} />
-											<span className="product-detail__info--price-decimal">00</span>
+											<NumberFormat value={product.price.ammount} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+											<span className="product-detail__info--price-decimal">{product.price.decimal}</span>
 										</p>
 
 										<button className="product-detail__info--button">Comprar</button>

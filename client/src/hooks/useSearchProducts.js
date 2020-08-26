@@ -1,14 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-export const useGetData = (endPoint, id = null) => {
+export const useSearchProducts = (name) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
-  var requestUrl = global.config.api + "/" + endPoint;
-  if (id != null) {
-    requestUrl = global.config.api + "/" + endPoint + '/' + id
-  }
+  var requestUrl = "/products/search/query?name=" + name;
   // Note: the empty deps array [] means
   // this useEffect will run once
   useEffect(() => {
@@ -33,6 +30,6 @@ export const useGetData = (endPoint, id = null) => {
   } else if (!isLoaded) {
     return { "loading": isLoaded };
   } else {
-    return { "loading": isLoaded, "product": items.product };
+    return { "loading": isLoaded, "data": items };
   }
 }

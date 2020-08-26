@@ -5,6 +5,7 @@ export const Load = styled.div`
   display: flex;
   margin: 0 auto;
   width: 48px;
+  padding-top: 40vh;
 `
 export const Circle = styled.div`
   & {
