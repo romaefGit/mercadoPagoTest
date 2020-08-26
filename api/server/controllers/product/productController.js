@@ -64,6 +64,53 @@ exports.listProductsBy = function (req, res) {
     })
 };
 
+exports.getProductById = function (req, res) {
+    let idProduct = req.params.id;
+    let response = {
+        status: false,
+        message: "The product couldn't be brought"
+    };
+    models.Products.findOne({
+        where: {
+            idproduct: idProduct
+        },
+        include: [
+            {
+                model: models.Users,
+                attributes: ["name", "lastname"]
+            },
+            {
+                model: models.Currencies,
+                attributes: ["type", "ammount", "decimal"]
+            }
+        ],
+        attributes: ['idproduct', "picture", "title", "place", "condition", "free_shipping"],
+    }).then(async (Product) => {
+        let getCategories = await findCategories(idProduct);
+        let categories = []
+        if (getCategories.status) {
+            categories = getCategories.categories;
+        }
+        let newProduct = {
+            "id": Product.idproduct,
+            "picture": Product.picture,
+            "title": Product.title,
+            "place": Product.place,
+            "author": Product.user,
+            "price": Product.currency,
+            "condition": Product.condition,
+            "free_shipping": Product.free_shipping,
+            "categories": categories
+        }
+        response.status = true;
+        response.product = newProduct;
+        response.message = "The product was brought correctly";
+        res.status(200).send(response);
+    }).catch((err) => {
+        response.error = err;
+        res.status(404).send(response);
+    })
+}
 /** 
  * Autor - Romario Estrada - www.romaef.com
  * [findCategories - This get categories by idproduct]
