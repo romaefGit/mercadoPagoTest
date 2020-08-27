@@ -74,6 +74,11 @@
         font-size: $--font-small;
         color: $--gray;
       }
+
+      @include --mobile {
+        top: #{$--margin * 2};
+        right: 0px;
+      }
     }
   }
 
@@ -167,9 +172,9 @@
 
     &--button {
       width: 100%;
-      background-color: #3483fa;
+      background-color: $--secondary;
       border-radius: 3px;
-      border: 1px solid #3483fa;
+      border: 1px solid $--secondary;
       display: inline-block;
       cursor: pointer;
       color: #ffffff;
@@ -177,10 +182,10 @@
       font-size: $--font-normal;
       padding: 8px 20px;
       text-decoration: none;
-      text-shadow: 0px 1px 0px #1470fa;
+      text-shadow: 0px 1px 0px $--secondary-dark;
 
       &:hover {
-        background-color: #6fa7fc;
+        background-color: $--secondary-light;
       }
 
       &:active {

@@ -5,7 +5,7 @@ export const useSearchProducts = (name) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
-  var requestUrl = "/products/search/query?name=" + name;
+  var requestUrl = global.config.api + "/products/search/query?name=" + name;
   // Note: the empty deps array [] means
   // this useEffect will run once
   useEffect(() => {
@@ -30,6 +30,6 @@ export const useSearchProducts = (name) => {
   } else if (!isLoaded) {
     return { "loading": isLoaded };
   } else {
-    return { "loading": isLoaded, "data": items };
+    return { "loading": isLoaded, "products": items.products };
   }
 }

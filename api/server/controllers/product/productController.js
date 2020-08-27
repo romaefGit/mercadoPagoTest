@@ -19,18 +19,36 @@ exports.listProducts = function (req, res) {
     models.Products.findAll({
         include: [
             {
-                model: models.Users,
-                attributes: ["name", "lastname"]
-            },
-            {
                 model: models.Currencies,
                 attributes: ["type", "ammount", "decimal"]
             }
-        ]
+        ],
+        attributes: ['idproduct', "picture", "title", "place", "description", "free_shipping"],
     }).then((Products) => {
-        response.status = true;
-        response.products = Products;
-        response.message = "The products was brought correctly.";
+        if (validate.theValueExist(Products)) {
+            var newProducts = [];
+            Products.forEach(async (product) => {
+                let newProduct = {
+                    "id": product.idproduct,
+                    "picture": product.picture,
+                    "title": product.title,
+                    "place": product.place,
+                    "price": product.currency,
+                    "free_shipping": product.free_shipping
+                }
+                newProducts.push(newProduct);
+                if (Products.length == newProducts.length) {
+                    response.status = true;
+                    response.products = newProducts;
+                    response.message = "The products was brought correctly";
+                    res.status(200).send(response);
+                }
+            });
+        } else {
+            response.products = [];
+            response.message = "There are no products";
+            res.status(200).send(response);
+        }
         res.status(200).send(response);
     }).catch((err) => {
         response.error = err;

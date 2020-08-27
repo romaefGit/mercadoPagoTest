@@ -33,6 +33,12 @@ export const useGetData = (endPoint, id = null) => {
   } else if (!isLoaded) {
     return { "loading": isLoaded };
   } else {
-    return { "loading": isLoaded, "product": items.product };
+    if (endPoint == 'products') {
+      if (id != null) {
+        return { "loading": isLoaded, "product": items.product };
+      } else {
+        return { "loading": isLoaded, "products": items.products };
+      }
+    }
   }
 }

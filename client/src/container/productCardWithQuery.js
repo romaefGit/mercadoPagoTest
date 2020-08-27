@@ -12,7 +12,7 @@ export const ProductCardWithQuery = ({ id }) => {
     return render;
   }
   if (getProduct.error) {
-    render = <p>Hay un error al carga los  productos</p>
+    render = <p>Hay un error al cargar el producto</p>
     return render;
   }
   if (getProduct.loading) {
