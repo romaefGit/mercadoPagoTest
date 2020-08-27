@@ -18,7 +18,7 @@ export const SearchBox = ({ onSubmit, onChange }) => {
   }
 
   const handleOnChange = (event) => {
-    event.preventDefault() // this is to do the next lines and not the normal behaviour of the submit
+    event.preventDefault() // this is to do the next lines and not the normal behaviour of the onChange
     setSearch(event.target.value)
     onChange({
       search: event.target.value
@@ -45,18 +45,3 @@ export const SearchBox = ({ onSubmit, onChange }) => {
     </Fragment>
   )
 }
-// export const SearchBox = ({ logo = '', path = "#", emoji = '?' }) => (
-//   <div className="header">
-//     <div className="header__search" >
-//       <TheLink to={`/`}>
-//         <div className="header__search--logo">
-//           <img className="img--responsive" src={Logo} />
-//         </div>
-//       </TheLink>
-//       <input type="text" className="header__search--term" placeholder="Nunca dejes de buscar" />
-//       <button type="submit" className="header__search--button">
-//         <Icon />
-//       </button>
-//     </div>
-//   </div>
-// )

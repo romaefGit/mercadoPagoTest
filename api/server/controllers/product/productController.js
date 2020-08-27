@@ -232,6 +232,7 @@ exports.searchProducts = function (req, res) {
         message: "The products couldn't be brought with that query = " + queryUrl
     };
     models.Products.findAll({
+        limit: 4, // the requeriments of the test say that, only 4
         where: {
             [Op.or]: [
                 {

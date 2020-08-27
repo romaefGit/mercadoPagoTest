@@ -56,14 +56,10 @@ export const ListOfProductCards = ({ type = null, name = null }) => {
   var getProducts;
   var render;
   var products;
-  // console.log('type > ', type)
-  // console.log('name > ', name)
   if (type == "loadAll") {
     return loadAllProducts();
   }
   if (type == "searching") {
     return loadProductsByName(name)
   }
-
-
 }
