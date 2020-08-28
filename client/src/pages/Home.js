@@ -9,18 +9,18 @@ var categories = [
   "Apple"
 ]
 
-export const Home = (path) => {
-  var [stoSearch, setStoSearch] = useLocalStorage("search", "")
+var storageSet = false;
+
+export const Home = () => {
+  var [stoSearch, setStoSearch] = useLocalStorage("search")
   var [toggle, setToggle] = useState(0);
   var [type, setType] = useState("loadAll");
-  var [name, setName] = useState("");
-
+  var [name, setName] = useState(stoSearch);
 
   const onChange = ({ search }) => {
     if (search == "" && name != search) {
       setToggle(0)
       setType("loadAll")
-      setStoSearch("")
     }
   }
   const onSubmit = ({ search }) => {
@@ -34,6 +34,12 @@ export const Home = (path) => {
       setToggle(0)
       setType("loadAll")
     }
+  }
+
+  // this manage the storage value to make a submit if the search value comes from another path
+  if (name != "" && !storageSet) {
+    storageSet = true
+    onSubmit({ search: name })
   }
 
   return (

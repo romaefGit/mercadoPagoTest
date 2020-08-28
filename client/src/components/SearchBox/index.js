@@ -24,7 +24,6 @@ export const SearchBox = ({ onSubmit, onChange }) => {
       search: event.target.value
     })
   }
-
   return (
     <Fragment>
       <div className="header">
@@ -35,7 +34,7 @@ export const SearchBox = ({ onSubmit, onChange }) => {
                 <img className="img--responsive" src={Logo} />
               </div>
             </TheLink>
-            <input type="text" className="header__search--term" placeholder="Nunca dejes de buscar" onChange={handleOnChange} />
+            <input id="searchBox" type="text" className="header__search--term" placeholder="Nunca dejes de buscar" onChange={handleOnChange} />
             <button type="submit" className="header__search--button">
               <Icon />
             </button>
