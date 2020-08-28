@@ -27,7 +27,7 @@ Special thanks go to:
 
 Clone the repo: 
 
-`git clone https://github.com/RomarioAugustoEstradaFlorez/testReactMercado`
+`git clone https://github.com/RomarioAugustoEstradaFlorez/mercadoPagoTest`
 
 **Front End**
 
