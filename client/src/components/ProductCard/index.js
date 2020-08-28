@@ -8,7 +8,7 @@ import { useMouseBehaviour } from '../../hooks/useMouseBehaviour'
 
 import { Link as TheLink } from '@reach/router'
 
-let IconShop = require('../../assets/img/Ic_shipping.png');
+var IconShop = require('../../assets/img/Ic_shipping.png');
 IconShop = IconShop.default;
 
 export const ProductCard = (product) => {
@@ -30,7 +30,7 @@ export const ProductCard = (product) => {
 						<div className="d-col-12 t-col-12 m-col-12">
 							<TheLink to={`/detail/${product.id}`}>
 								<div className="product__thumbnail">
-									<Img className="img--responsive product__thumbnail--img" src={product.picture} />
+									<Img className="img--responsive product__thumbnail--img" src={`${global.config.folderProducts}/${product.picture}`} />
 								</div>
 								<div className="product__info">
 									<p className="product__info--price">
@@ -56,7 +56,7 @@ export const ProductCard = (product) => {
 							<div className="flex-grid">
 								<div className="d-col-8 t-col-6 m-col-12">
 									<div className="product-detail__thumbnail">
-										<Img className="img--responsive product-detail__thumbnail--img" src={product.picture} />
+										<Img className="img--responsive product-detail__thumbnail--img" src={`${global.config.folderProducts}/${product.picture}`} />
 									</div>
 								</div>
 

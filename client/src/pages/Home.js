@@ -21,6 +21,7 @@ export const Home = () => {
     if (search == "" && name != search) {
       setToggle(0)
       setType("loadAll")
+      setStoSearch(null)
     }
   }
   const onSubmit = ({ search }) => {
@@ -28,11 +29,12 @@ export const Home = () => {
       setToggle(1)
       setType("searching")
       setName(search)
-      setStoSearch(search)
+      setStoSearch(null)
     }
     if (search == "" || search == null) {
       setToggle(0)
       setType("loadAll")
+      setStoSearch(null)
     }
   }
 
