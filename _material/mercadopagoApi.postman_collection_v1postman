@@ -1,0 +1,200 @@
+{
+	"id": "a614238a-d441-4e98-b7ef-fe527dba2e58",
+	"name": "mercadopagoApi",
+	"description": null,
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"33f0ec7a-47d0-4d45-8532-6bc6b550acd6",
+		"27d043cf-1fed-4600-acbd-5baefc23f770",
+		"f12c77f2-d702-4c68-9a6e-e8ec66faf894",
+		"31c68062-5a10-473c-b9aa-8f2b42d9d323",
+		"62d6a380-cb62-4d07-bdd2-cd42b0280c3a",
+		"425b37df-5a56-47c3-a6fa-90daa21b506b",
+		"b0f4b995-df21-42ee-9008-56f73fb6b278",
+		"eb209d00-826a-47b3-b593-d90b76e2207c"
+	],
+	"folders_order": [],
+	"protocolProfileBehavior": {},
+	"folders": [],
+	"requests": [
+		{
+			"id": "27d043cf-1fed-4600-acbd-5baefc23f770",
+			"name": "save currency",
+			"url": "http://localhost:3000/api/currencies",
+			"description": "{\r\n    \"currency\": {\r\n        \"type\": \"COP\",\r\n        \"ammount\": 1750000,\r\n        \"decimal\": 0\r\n    }\r\n}\r\n  ",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\r\n    \"currency\": {\r\n        \"type\": \"COP\",\r\n        \"ammount\": 1750000,\r\n        \"decimal\": 0\r\n    }\r\n}\r\n  ",
+			"pathVariables": {}
+		},
+		{
+			"id": "31c68062-5a10-473c-b9aa-8f2b42d9d323",
+			"name": "Update product",
+			"url": "http://localhost:3000/api/products/1",
+			"description": "Example :\r\n\r\n{\r\n    \"product\": {\r\n        title: Product.title,\r\n        description: Product.description,\r\n        place: Product.place,\r\n        picture: Product.picture,\r\n        condition: Product.condition,\r\n        free_shipping: Product.free_shipping,\r\n        sold_quantity: Product.sold_quantity,\r\n        iduser: Product.iduser,\r\n        idcurrency: Product.idcurrency,\r\n    }\r\n}",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\r\n    \"product\": {\r\n        \"idcurrency\": 5,\r\n        \"iduser\": 1\r\n    }\r\n}",
+			"pathVariables": {}
+		},
+		{
+			"id": "33f0ec7a-47d0-4d45-8532-6bc6b550acd6",
+			"name": "Save products",
+			"url": "http://localhost:3000/api/products",
+			"description": "Example: \r\n\r\n{\r\n    \"product\": {\r\n        title: Product.title,\r\n        description: Product.description,\r\n        place: Product.place,\r\n        picture: Product.picture,\r\n        condition: Product.condition,\r\n        free_shipping: Product.free_shipping,\r\n        sold_quantity: Product.sold_quantity,\r\n        iduser: Product.iduser,\r\n        idcurrency: Product.idcurrency,\r\n    }\r\n}",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\r\n    \"product\": {\r\n        \"title\": \"Apple Ipod Touch 5g 16gb Negro Igual A Nuevo\",\r\n        \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n        \"condition\": \"something\",\r\n        \"place\": \"Capital Federal\",\r\n        \"picture\": \"http://localhost:3000/products-img/ipod.png\",\r\n        \"sold_quantity\": 234,\r\n        \"free_shipping\": false,\r\n        \"idcurrency\": 5,\r\n        \"iduser\": 1\r\n    }\r\n}",
+			"pathVariables": {}
+		},
+		{
+			"id": "425b37df-5a56-47c3-a6fa-90daa21b506b",
+			"name": "Search products",
+			"url": "http://localhost:3000/api/products/search/query?name=ipod",
+			"description": "You have to use that /query?name=ipod and only name as a property",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "name",
+					"value": "ipod",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"rawModeData": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "62d6a380-cb62-4d07-bdd2-cd42b0280c3a",
+			"name": "save category",
+			"url": "http://localhost:3000/api/categories",
+			"description": "example:\r\n\r\n{\r\n    \"category\":{\r\n        name: category.name\r\n    } \r\n}",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\r\n    \"category\": {\r\n        \"name\": \"16GB\"\r\n    }\r\n}",
+			"pathVariables": {}
+		},
+		{
+			"id": "b0f4b995-df21-42ee-9008-56f73fb6b278",
+			"name": "Get product By ID",
+			"url": "http://localhost:3000/api/products/1",
+			"description": "products/:id",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": null,
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"pathVariables": {}
+		},
+		{
+			"id": "eb209d00-826a-47b3-b593-d90b76e2207c",
+			"name": "Get All Products",
+			"url": "http://localhost:3000/api/products",
+			"description": "this get for all the products on the database",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": null,
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"pathVariables": {}
+		},
+		{
+			"id": "f12c77f2-d702-4c68-9a6e-e8ec66faf894",
+			"name": "save user",
+			"url": "http://localhost:3000/api/users",
+			"description": "{\r\n    \"user\" : {\r\n        \"name\": \"Romario\",\r\n        \"lastname\": \"Estrada\",\r\n        \"rol\": \"Author\"\r\n    }\r\n}",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"rawModeData": "{\r\n    \"user\" : {\r\n        \"name\": \"Romario\",\r\n        \"lastname\": \"Estrada\",\r\n        \"rol\": \"Author\"\r\n    }\r\n}",
+			"pathVariables": {}
+		}
+	]
+}

@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "a614238a-d441-4e98-b7ef-fe527dba2e58",
+		"name": "mercadopagoApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product\": {\r\n        \"title\": \"Apple Ipod Touch 5g 16gb Negro Igual A Nuevo\",\r\n        \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n        \"condition\": \"something\",\r\n        \"place\": \"Capital Federal\",\r\n        \"picture\": \"http://localhost:3000/products-img/ipod.png\",\r\n        \"sold_quantity\": 234,\r\n        \"free_shipping\": false,\r\n        \"idcurrency\": 5,\r\n        \"iduser\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/products",
+				"description": "Example: \r\n\r\n{\r\n    \"product\": {\r\n        title: Product.title,\r\n        description: Product.description,\r\n        place: Product.place,\r\n        picture: Product.picture,\r\n        condition: Product.condition,\r\n        free_shipping: Product.free_shipping,\r\n        sold_quantity: Product.sold_quantity,\r\n        iduser: Product.iduser,\r\n        idcurrency: Product.idcurrency,\r\n    }\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "save currency",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"currency\": {\r\n        \"type\": \"COP\",\r\n        \"ammount\": 1750000,\r\n        \"decimal\": 0\r\n    }\r\n}\r\n  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/currencies",
+				"description": "{\r\n    \"currency\": {\r\n        \"type\": \"COP\",\r\n        \"ammount\": 1750000,\r\n        \"decimal\": 0\r\n    }\r\n}\r\n  "
+			},
+			"response": []
+		},
+		{
+			"name": "save user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\" : {\r\n        \"name\": \"Romario\",\r\n        \"lastname\": \"Estrada\",\r\n        \"rol\": \"Author\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/users",
+				"description": "{\r\n    \"user\" : {\r\n        \"name\": \"Romario\",\r\n        \"lastname\": \"Estrada\",\r\n        \"rol\": \"Author\"\r\n    }\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product\": {\r\n        \"idcurrency\": 5,\r\n        \"iduser\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/products/1",
+				"description": "Example :\r\n\r\n{\r\n    \"product\": {\r\n        title: Product.title,\r\n        description: Product.description,\r\n        place: Product.place,\r\n        picture: Product.picture,\r\n        condition: Product.condition,\r\n        free_shipping: Product.free_shipping,\r\n        sold_quantity: Product.sold_quantity,\r\n        iduser: Product.iduser,\r\n        idcurrency: Product.idcurrency,\r\n    }\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "save category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": {\r\n        \"name\": \"16GB\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/categories",
+				"description": "example:\r\n\r\n{\r\n    \"category\":{\r\n        name: category.name\r\n    } \r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Search products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/products/search/query?name=ipod",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"search",
+						"query"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ipod"
+						}
+					]
+				},
+				"description": "You have to use that /query?name=ipod and only name as a property"
+			},
+			"response": []
+		},
+		{
+			"name": "Get product By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/api/products/1",
+				"description": "products/:id"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/api/products",
+				"description": "this get for all the products on the database"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
