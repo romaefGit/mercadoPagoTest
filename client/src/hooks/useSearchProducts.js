@@ -1,11 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-export const useSearchProducts = (name) => {
+
+export const useSearchProducts = (name, limit = 0) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  const [data, setData] = useState();
 
-  var requestUrl = global.config.api + "/products/search/query?name=" + name;
+  var endPointLocal = "/products/search/query?name="
+  var endPointMla = "/sites/MLA/search?q="
+
+  var requestUrl = global.config.api + endPointMla + name
   // Note: the empty deps array [] means
   // this useEffect will run once
   useEffect(() => {
@@ -14,9 +18,25 @@ export const useSearchProducts = (name) => {
     })
       .then(res => res.json())
       .then(
-        (result) => {
+        (response) => {
           setIsLoaded(true);
-          setItems(result);
+          var results = [];
+          if (limit > 0) { // if limit > 0 the code bellow will push the quantity of limit 
+            if (response.results != []) {
+              for (let index = 0; index < limit; index++) {
+                let product = response.results[index]
+                results.push(product)
+                if (results.length == limit) {
+                  break;
+                }
+              }
+            }
+            setData(results)
+          } else if (limit == 0) {
+            setIsLoaded(true);
+            results = response.results;
+            setData(results)
+          }
         },
         (error) => {
           setIsLoaded(true);
@@ -30,6 +50,6 @@ export const useSearchProducts = (name) => {
   } else if (!isLoaded) {
     return { "loading": isLoaded };
   } else {
-    return { "loading": isLoaded, "products": items.products };
+    return { "loading": isLoaded, "products": data };
   }
 }

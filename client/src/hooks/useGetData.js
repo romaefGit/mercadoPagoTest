@@ -1,15 +1,14 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-export const useGetData = (endPoint, id = null) => {
+export const useGetData = (endPoint, id = null, withDesc = false) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  const [item, setItem] = useState();
 
-  var requestUrl = global.config.api + "/" + endPoint;
-  if (id != null) {
-    requestUrl = global.config.api + "/" + endPoint + '/' + id
-  }
-  // Note: the empty deps array [] means
+  var requestUrl;
+  if (id != null) requestUrl = global.config.api + "/" + endPoint + '/' + id
+  if (id != null && withDesc) requestUrl = global.config.api + "/" + endPoint + '/' + id + '/description'
+  // Note: the empty deps object [] means
   // this useEffect will run once
   useEffect(() => {
     fetch(requestUrl, {
@@ -19,7 +18,7 @@ export const useGetData = (endPoint, id = null) => {
       .then(
         (result) => {
           setIsLoaded(true);
-          setItems(result);
+          setItem(result);
         },
         (error) => {
           setIsLoaded(true);
@@ -33,12 +32,10 @@ export const useGetData = (endPoint, id = null) => {
   } else if (!isLoaded) {
     return { "loading": isLoaded };
   } else {
-    if (endPoint == 'products') {
-      if (id != null) {
-        return { "loading": isLoaded, "product": items.product };
-      } else {
-        return { "loading": isLoaded, "products": items.products };
-      }
+    if (withDesc) {
+      return { "loading": isLoaded, "data": item }
+    } else {
+      return { "loading": isLoaded, "product": item }
     }
   }
 }
