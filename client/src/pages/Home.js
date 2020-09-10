@@ -1,55 +1,43 @@
 import React, { Fragment, setState, useState } from "react"
 import { SearchBox } from '../components/SearchBox'
-import { BreadCrumb } from '../components/BreadCrumb'
-import { ListOfProductCards } from '../container/ListOfProductCards'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import { SeoBehaviour } from '../components/SeoBehaviour'
 
 var categories = [
   "Electrónica, Audio y Video",
-  "Apple"
+  "Android"
 ]
 
 var storageSet = false;
 
 export const Home = () => {
-  var [stoSearch, setStoSearch] = useLocalStorage("search")
-  var [toggle, setToggle] = useState(0);
-  var [type, setType] = useState("loadAll");
-  var [name, setName] = useState(stoSearch);
+  var [search, setSearch] = useLocalStorage("search", "")
 
   const onChange = ({ search }) => {
     if (search == "" && name != search) {
-      setToggle(0)
-      setType("loadAll")
-      setStoSearch(null)
+      setSearch("")
     }
   }
   const onSubmit = ({ search }) => {
     if (search != "" && search != null) {
-      setToggle(1)
-      setType("searching")
-      setName(search)
-      setStoSearch(null)
+      setSearch(search)
+      window.location.href = '/items?search=' + search;
     }
     if (search == "" || search == null) {
-      setToggle(0)
-      setType("loadAll")
-      setStoSearch(null)
+      setSearch("")
     }
   }
 
-  // this manage the storage value to make a submit if the search value comes from another path
-  if (name != "" && !storageSet) {
-    storageSet = true
-    onSubmit({ search: name })
+  var infoSeo = {
+    title: "Los mejores productos aquí",
+    description: "Tu lugar para comprar por internet, encontrarás gran variedad de productos y a muy buenos precios!",
+    url: window.location,
+    img: "https://http2.mlstatic.com/frontend-assets/ui-navigation/5.9.1/mercadolibre/logo__large_plus@2x.png"
   }
 
   return (
-    <Fragment>
+    <SeoBehaviour {...infoSeo}>
       <SearchBox onSubmit={onSubmit} onChange={onChange} />
-      <BreadCrumb {...categories} />
-      {toggle == 1 && <ListOfProductCards type={type} name={name} />}
-      {toggle == 0 && <ListOfProductCards type={type} />}
-    </Fragment>
+    </SeoBehaviour>
   )
 }

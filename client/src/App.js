@@ -2,17 +2,16 @@ import React from "react"
 import { Router } from '@reach/router'
 // pages
 import { Home } from './pages/Home'
-import { ItemDetail } from './pages/ItemDetail'
+import { Items } from './pages/Items'
 
 import './styles/globalStyles.scss'
 
 export const App = () => {
-	const urlParams = new window.URLSearchParams(window.location.search)
-
 	return (
 		<Router>
 			<Home path="/" />
-			<ItemDetail path="/detail/:itemId" />
+			<Items path="/items" />
+			<Items path="/items/:itemId" />
 		</Router>
 	)
 }

@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
-import NumberFormat from 'react-number-format'
 import './styles.scss'
 import { Img } from './styles'
 import { BreadCrumb } from '../BreadCrumb'
+import { SeoBehaviour } from '../../components/SeoBehaviour'
+import formatNumber from '../../container/formatNumber'
 import { useNearItemsToShow } from '../../hooks/useNearItemsToShow'
 import { useMouseBehaviour } from '../../hooks/useMouseBehaviour'
 
@@ -11,13 +12,21 @@ import { Link as TheLink } from '@reach/router'
 var IconShop = require('../../assets/img/Ic_shipping.png');
 IconShop = IconShop.default;
 
+
 export const ProductCard = (product) => {
 	const [show, element] = useNearItemsToShow() // this get for the element instead
 	const [over, setOver] = useMouseBehaviour();
-
+	var infoSeo;
+	var priceObj = formatNumber(product.price)
 	var showNormal = true;
 	if (show && product.showDetail == true) {
 		showNormal = false;
+		infoSeo = {
+			title: product.title,
+			description: product.description ? product.description.substring(0, 150) : "",
+			url: window.location,
+			img: product.pictures[0].url ? product.pictures[0].url : ""
+		}
 	}
 	return (
 		<article ref={element}
@@ -28,19 +37,19 @@ export const ProductCard = (product) => {
 				(showNormal) && <Fragment>
 					<div className="product flex-grid">
 						<div className="d-col-12 t-col-12 m-col-12">
-							<TheLink to={`/detail/${product.id}`}>
+							<TheLink to={`/items/${product.id}`}>
 								<div className="product__thumbnail">
-									<Img className="img--responsive product__thumbnail--img" src={`${global.config.folderProducts}/${product.picture}`} />
+									<Img className="img--responsive product__thumbnail--img" src={`${product.thumbnail}`} />
 								</div>
 								<div className="product__info">
 									<p className="product__info--price">
-										<NumberFormat value={product.price.ammount} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+										{priceObj.ammount}
 										{
-											(product.free_shipping) && <Img className="img--responsive" src={IconShop} />
+											(product.shipping.free_shipping) && <Img className="img--responsive" src={IconShop} />
 										}
 									</p>
 									<h1 className="product__info--title">{product.title}</h1>
-									<p className="product__info--place">{product.place}</p>
+									<p className="product__info--place">{product.seller_address.state.name}</p>
 								</div>
 							</TheLink>
 						</div>
@@ -49,14 +58,14 @@ export const ProductCard = (product) => {
 			}
 
 			{
-				(!showNormal) && <Fragment>
-					<BreadCrumb {...product.categories} />
+				(!showNormal) && <SeoBehaviour {...infoSeo}>
+					<BreadCrumb {...product.deal_ids} />
 					<div className="product-detail">
 						<div className="flex-wrapper">
 							<div className="flex-grid">
 								<div className="d-col-8 t-col-6 m-col-12">
 									<div className="product-detail__thumbnail">
-										<Img className="img--responsive product-detail__thumbnail--img" src={`${global.config.folderProducts}/${product.picture}`} />
+										<Img className="img--responsive product-detail__thumbnail--img" src={`${product.pictures[0].url}`} />
 									</div>
 								</div>
 
@@ -65,8 +74,8 @@ export const ProductCard = (product) => {
 										<p className="product-detail__info--condition">{product.condition} - {product.sold_quantity} vendidos</p>
 										<h1 className="product-detail__info--title">{product.title}</h1>
 										<p className="product-detail__info--price">
-											<NumberFormat value={product.price.ammount} displayType={'text'} thousandSeparator={true} prefix={'$'} />
-											<span className="product-detail__info--price-decimal">{product.price.decimal}</span>
+											{priceObj.ammount}
+											<span className="product-detail__info--price-decimal">{priceObj.decimals}</span>
 										</p>
 
 										<button className="product-detail__info--button">Comprar</button>
@@ -75,7 +84,7 @@ export const ProductCard = (product) => {
 							</div>
 
 							<div className="flex-grid">
-								<div className="product-detail__info--desc d-col-8 t-col-8 m-col-12">
+								<div className="product-detail__info--desc">
 									<h2>Descripción del producto</h2>
 									<p>{product.description}</p>
 								</div>
@@ -83,7 +92,7 @@ export const ProductCard = (product) => {
 						</div>
 					</div>
 
-				</Fragment>
+				</SeoBehaviour>
 
 			}
 		</article>

@@ -12,24 +12,27 @@
   &__thumbnail {
     position: relative;
     overflow: hidden;
+    width: 180px;
+    height: 180px;
     max-width: 180px;
     max-height: 180px;
     height: 180px;
     float: left;
     margin-right: $--margin;
 
+
     @include --mobile {
       float: inherit;
       margin: 0 auto;
       max-width: inherit;
       max-height: inherit;
+      max-width: 180px;
       height: inherit;
+      width: 100%;
     }
 
     &--img {
-      @include --mobile {
-        width: 100%
-      }
+      width: 100%
     }
   }
 
@@ -137,6 +140,15 @@
 
     &--desc {
       text-align: left;
+
+      @include --desktop {
+        width: 70%;
+        padding: $--pad-x;
+      }
+
+      @include --tablet {
+        width: 100%;
+      }
 
       & p {
         font-size: $--font-small;
