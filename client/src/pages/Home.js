@@ -1,6 +1,7 @@
 import React, { Fragment, setState, useState } from "react"
 import { SearchBox } from '../components/SearchBox'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import { SeoBehaviour } from '../components/SeoBehaviour'
 
 var categories = [
   "Electrónica, Audio y Video",
@@ -27,9 +28,16 @@ export const Home = () => {
     }
   }
 
+  var infoSeo = {
+    title: "Los mejores productos aquí",
+    description: "Tu lugar para comprar por internet, encontrarás gran variedad de productos y a muy buenos precios!",
+    url: window.location,
+    img: "https://http2.mlstatic.com/frontend-assets/ui-navigation/5.9.1/mercadolibre/logo__large_plus@2x.png"
+  }
+
   return (
-    <Fragment>
+    <SeoBehaviour {...infoSeo}>
       <SearchBox onSubmit={onSubmit} onChange={onChange} />
-    </Fragment>
+    </SeoBehaviour>
   )
 }

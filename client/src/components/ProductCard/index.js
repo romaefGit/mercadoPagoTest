@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import './styles.scss'
 import { Img } from './styles'
 import { BreadCrumb } from '../BreadCrumb'
+import { SeoBehaviour } from '../../components/SeoBehaviour'
 import formatNumber from '../../container/formatNumber'
 import { useNearItemsToShow } from '../../hooks/useNearItemsToShow'
 import { useMouseBehaviour } from '../../hooks/useMouseBehaviour'
@@ -11,14 +12,21 @@ import { Link as TheLink } from '@reach/router'
 var IconShop = require('../../assets/img/Ic_shipping.png');
 IconShop = IconShop.default;
 
+
 export const ProductCard = (product) => {
 	const [show, element] = useNearItemsToShow() // this get for the element instead
 	const [over, setOver] = useMouseBehaviour();
-
+	var infoSeo;
 	var priceObj = formatNumber(product.price)
 	var showNormal = true;
 	if (show && product.showDetail == true) {
 		showNormal = false;
+		infoSeo = {
+			title: product.title,
+			description: product.description ? product.description.substring(0, 150) : "",
+			url: window.location,
+			img: product.pictures[0].url ? product.pictures[0].url : ""
+		}
 	}
 	return (
 		<article ref={element}
@@ -50,7 +58,7 @@ export const ProductCard = (product) => {
 			}
 
 			{
-				(!showNormal) && <Fragment>
+				(!showNormal) && <SeoBehaviour {...infoSeo}>
 					<BreadCrumb {...product.deal_ids} />
 					<div className="product-detail">
 						<div className="flex-wrapper">
@@ -84,7 +92,7 @@ export const ProductCard = (product) => {
 						</div>
 					</div>
 
-				</Fragment>
+				</SeoBehaviour>
 
 			}
 		</article>
