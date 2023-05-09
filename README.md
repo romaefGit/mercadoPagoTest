@@ -18,14 +18,9 @@ Special thanks go to:
 
 ## Table of Contents
 
-* [GO DEMO](#demo-link)
 * [Quick Start](#quick-start)
 * [Browser Support](#browser-support)
 * [Licensing](#licensing)
-
-## DEMO link
-
-You can see the demo working on the next link [Mercado Libre Test](https://testmercadolibre-db466.web.app/) and with a [defalut search](https://testmercadolibre-db466.web.app/items?search=android), if you liked, give me a star on this [Respossitory](https://github.com/RomarioAugustoEstradaFlorez/mercadoPagoTest) 
 
 
 ## Quick start
@@ -100,10 +95,6 @@ Licensed under MIT
 
 ##### Social Media
 #
-Web Page: <http://www.romaef.com>
+Web Page: <https://romaef.web.app/>
 
 Twitter: <https://twitter.com/romaestradaflo>
-
-Facebook: <https://www.facebook.com/romaef/>
-
-Instagram: <https://www.instagram.com/romaef_/>
